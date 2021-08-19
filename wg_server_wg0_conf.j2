@@ -1,0 +1,8 @@
+[Interface]
+Address = 10.1.1.2/30
+ListenPort = {{ wg_port }}
+PrivateKey = {{ wg_server_key.stdout }}
+
+[Peer]
+AllowedIPs = 10.1.1.1/32
+PublicKey = {{ wg_client_pubkey.stdout }}
