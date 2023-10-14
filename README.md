@@ -29,6 +29,8 @@ $ echo 'UJ5jY2NC/xrW3dhdgInkVRUbFwxHLfRm4MEMPtUr5l0=' > /tmp/privkey
 
 Then, you can create a Wireguard network interface and move it into a network namespace:
 ```sh
+$ sudo mkdir -p /etc/netns/VPN/
+$ echo 'nameserver 1.1.1.1' | sudo tee /etc/netns/VPN/resolv.conf
 $ sudo ip link add wg0 type wireguard
 $ sudo ip netns add VPN
 $ sudo ip link set wg0 netns VPN
